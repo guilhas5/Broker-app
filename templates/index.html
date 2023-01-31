@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Symbol</th>
+            <th scope="col">Name</th>
+            <th scope="col">Shares</th>
+            <th scope="col">Price</th>
+            <th scope="col">Total</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+            {% for row in transactions %}
+                <tr>
+                    <td>{{row["symbol"]}}</td>
+                    <td>"{{row["name"]}}</td>
+                    <td>{{row["shares"]}}</td>
+                    <td>{{row["price"]|usd}}</td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+
+        <tfoot>
+                <tr>
+                    <td></td>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>{{ cash|usd }}</th>
+                </tr>
+        </tfoot>
+    </table>
+
+
+    </table>
+{% endblock %}
